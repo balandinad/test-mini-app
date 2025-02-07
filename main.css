@@ -1,0 +1,81 @@
+:root {
+    --bg-color: #020202;
+    --text-color: #F2F2F2;
+    --button-color: linear-gradient(0deg, #262626 0%, #171717 100%);
+}
+
+/* Контейнер для всего содержимого */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 390px;
+    height: 844px;
+    flex-shrink: 0;
+    background-image: url('../images/background.png');
+    background-size: cover;
+    z-index: 1;
+}
+
+h1 {
+    position: absolute;
+    bottom: 180px;
+    width: 300px;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -1.6px;
+    z-index: 3;
+}
+
+.button { 
+    position: absolute;
+    bottom: 80px;
+    width: auto; 
+    height: 60px;
+    display: inline-flex;
+    padding: 20px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--button-color); 
+    border-radius: 10px;
+    z-index: 3;
+    color: var(--text-color);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.64px;
+    text-decoration: none;
+    border: none; /* убирает стандартную рамку кнопки */
+    cursor: pointer; /* меняет курсор при наведении */
+    transform: scale(1);
+    transition: transform 0.3s ease; /* Добавляем плавный переход */
+}
+
+.button:active {
+    transform: scale(0.9);
+}
+
+.rectangle {
+    position: absolute;
+    bottom: 0;
+    width: 390px;
+    height: 430px;
+    background: linear-gradient(0deg, #020202 60%, rgba(2, 2, 2, 0.00) 100%);
+    z-index: 2;
+}
