@@ -16,22 +16,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const button = document.getElementById('changeTextBtn');
     const heading = document.querySelector('h1');
 
-    // Сохраняем исходные тексты
-    const originalHeadingText = heading.textContent;
-    const originalButtonText = button.textContent;
+    // Сохраняем исходные тексты сразу после загрузки DOM
+    const originalHeadingText = "Добро пожаловать в крутой mini app"; // или то, что у вас изначально в HTML
+    const originalButtonText = "Начать знакомство"; // или то, что у вас изначально в HTML
 
-    // Флаг для отслеживания состояния
     let isChanged = false;
 
-    // Обработчик клика по кнопке
     button.addEventListener('click', function() {
         if (!isChanged) {
-            // Меняем текст заголовка и кнопки
             heading.textContent = "Энвер лох)";
             this.textContent = "Подтверждаю";
             isChanged = true;
         } else {
-            // Возвращаем исходные значения
             heading.textContent = originalHeadingText;
             this.textContent = originalButtonText;
             isChanged = false;
