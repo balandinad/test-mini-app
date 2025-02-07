@@ -14,17 +14,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Получаем элементы
     const button = document.getElementById('changeTextBtn');
-    const heading = document.querySelector('h1'); // Убрал точку перед h1, так как это тег
+    const heading = document.querySelector('h1');
+
+    // Сохраняем исходные тексты
+    const originalHeadingText = heading.textContent;
+    const originalButtonText = button.textContent;
+
+    // Флаг для отслеживания состояния
+    let isChanged = false;
 
     // Обработчик клика по кнопке
     button.addEventListener('click', function() {
-        // Меняем текст заголовка
-        heading.textContent = "Энвер лох)";
+        if (!isChanged) {
+            // Меняем текст заголовка и кнопки
+            heading.textContent = "Энвер лох)";
+            this.textContent = "Подтверждаю";
+            isChanged = true;
+        } else {
+            // Возвращаем исходные значения
+            heading.textContent = originalHeadingText;
+            this.textContent = originalButtonText;
+            isChanged = false;
+        }
 
-        // Меняем текст кнопки
-        this.textContent = "Подтверждаю";
-
-        // Можно добавить вибрацию (опционально)
+        // Добавляем вибрацию
         if (tg.HapticFeedback) {
             tg.HapticFeedback.impactOccurred('light');
         }
